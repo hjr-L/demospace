@@ -48,8 +48,10 @@ async function transform(str, onlyOne = false) {
     let result = "";
     const res = await axios.get(url);
 
+    console.log(res.data);
+
     if (res.data && res.data.errorCode == 0) {
-      const value = res.data.web[0].value;
+      const value = res.data.translation;
       if (onlyOne || from == "en") {
         result = value[0];
       } else {
@@ -100,6 +102,7 @@ function activate(context) {
         const selectedText = editor.document.getText(selection);
         // 输出选中的文本
         let output = await transform(selectedText, true);
+        output = output.substring(0,1).toLocaleLowerCase() + output.substring(1);
         output = output
           .replace(/\s\w/g, (th) => th.toUpperCase())
           .replace(/\s/g, "");
