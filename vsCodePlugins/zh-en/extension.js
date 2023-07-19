@@ -8,27 +8,75 @@ const vscode = require('vscode');
 /**
  * @param {vscode.ExtensionContext} context
  */
+
+function transform(str){
+	const lang = includChinese(str) ? 'zh' : 'en';
+	return `transform ${str} ${lang}`
+}
+
+function includChinese(str){
+	const reg = new RegExp("[\\u4E00-\\u9FFF]+", "g");
+	return reg.test(str);
+}
+
 function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "zh-en" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('zh-en.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from zh-en!');
+	const newShowTranslate = vscode.commands.registerCommand('newShowTranslate', ()=>{
+		//翻译显示在status bar
+		const editor = vscode.window.activeTextEditor;
+		if(editor && !editor.selection.isEmpty){
+			 // 获取选中的范围
+			 const selection = editor.selection;
+			 // 获取选中的文本
+			 const selectedText = editor.document.getText(selection);
+			 // 输出选中的文本
+			 const output = transform(selectedText);
+			 vscode.window.setStatusBarMessage(output, 2500);
+		}
 	});
 
-	context.subscriptions.push(disposable);
+	const newHumpReplace = vscode.commands.registerCommand('newHumpReplace', ()=>{
+		// 驼峰翻译 hump
+		const editor = vscode.window.activeTextEditor;
+		if(editor && !editor.selection.isEmpty){
+			 // 获取选中的范围
+			 const selection = editor.selection;
+			 // 获取选中的文本
+			 const selectedText = editor.document.getText(selection);
+			 // 输出选中的文本
+			 let output = transform(selectedText);
+			 output = output.replace(/\s\w/g,(th)=> th.toUpperCase()).replace(/\s/g,'');
+			 editor.edit(builder=>{
+				builder.replace(selection,output);
+			 })
+		}
+	});
+
+	const newTransform = vscode.commands.registerCommand('newTransform', () => {
+		// 中英文互翻，显示在edit
+		const editor = vscode.window.activeTextEditor;
+		if(editor && !editor.selection.isEmpty){
+			 // 获取选中的范围
+			 const selection = editor.selection;
+			 // 获取选中的文本
+			 const selectedText = editor.document.getText(selection);
+			 // 输出选中的文本
+			 let output = transform(selectedText);
+			 editor.edit(builder => {
+				builder.replace(selection, output);
+			 })
+		}
+	})
+
+	context.subscriptions.push(newShowTranslate);
+	context.subscriptions.push(newHumpReplace);
+	context.subscriptions.push(newTransform);
+
 }
 
 // This method is called when your extension is deactivated
-function deactivate() {}
+function deactivate() {
+	console.log('deactivate');
+}
 
 module.exports = {
 	activate,

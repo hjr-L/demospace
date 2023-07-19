@@ -13,9 +13,30 @@
   "main": "./extension.js",
   "contributes": {
     "commands": [{
-      "command": "zh-en.helloWorld",
-      "title": "Hello World"
-    }]
+      "command": "newShowTranslate",
+      "title": "newShowTranslate"
+    },{
+      "command": "newHumpReplace",
+      "title": "newHumpReplace"
+    },
+    {
+      "command": "newTransform",
+      "title": "newTransform"
+    }
+  ],
+    "keybindings":[
+      {
+        "command": "newShowTranslate",
+        "key": "cmd+5"
+      },{
+        "command": "newHumpReplace",
+        "key": "cmd+0"
+      },
+      {
+        "command": "newTransform",
+        "key": "cmd+9"
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
