@@ -1,5 +1,9 @@
+:root{
+    --globalColor: green;
+}
 .footer{
-    color: bisque;
+    color: var(--globalColor);
+    
 }
 .footer_content{
     width: 100px;

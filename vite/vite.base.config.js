@@ -1,6 +1,9 @@
 import {defineConfig} from 'vite';
 import theme from './theme/common.js'
+import {resolve} from 'path';
 
+import postcssPresetEnv from 'postcss-preset-env';
+console.log(__dirname);
 export default defineConfig({
         css: {
             modules: {
@@ -27,12 +30,21 @@ export default defineConfig({
                 }
                 //...
             },
-            devSourcemap: false,
+            // devSourcemap: false, //开启css的sourcemap
             postcss:{
                 plugins:[
-                    
+                    postcssPresetEnv
                 ]
             }
         },
+        resolve:{
+            alias: [
+                {
+                    find: '@assets',
+                    replacement: resolve(__dirname, './assets'),
+                    // customResolver: ()=>{}
+                }
+            ]
+        }
         
 })
