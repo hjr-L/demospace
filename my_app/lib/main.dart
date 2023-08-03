@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/widget/myDialog.dart';
 // Import for Android features.
 import 'package:webview_flutter/webview_flutter.dart';
-import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
-
+// import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -43,7 +43,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   final _controller = WebViewController();
 
   @override
@@ -83,15 +82,32 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
+  }
+  void _myDialog(){
+    showDialog(context: context, builder: ((context){
+      return MyDialog(title:"我是title", content: "我是content",);
+    }));
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: WebViewWidget(controller: _controller),
+      body: PageView(
+        scrollDirection: Axis.horizontal,
+        allowImplicitScrolling:true,
+        children: [
+          Center(child: Text("第一页"),),
+          Center(child: Text("第二页"),),
+          Center(child: Text("第三页"),),
+        ],
       ),
+      // body: SafeArea(
+      //   child: Column(
+      //     children: [
+      //     // WebViewWidget(controller: _controller),
+      //     ElevatedButton(onPressed: _myDialog, child: const Text("my dialog"))
+      //   ]),
+      // ),
     );
   }
 }
