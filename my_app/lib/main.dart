@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home:  MyHomePage(title: 'Flutter Demo Home Page',context:context),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, required this.context});
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -36,6 +36,7 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final BuildContext context;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -43,13 +44,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-    final _controller = WebViewController();
+  final _controller = WebViewController();
 
   @override
   void initState() {
     super.initState();
+    String str;
     _controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(Color.fromARGB(0, 104, 89, 89))
+      ..addJavaScriptChannel('ShowMessage', onMessageReceived: (message)=>{
+          print(message),
+          str = '我收到了，${message.message}',
+          _controller.runJavaScript("globalCallback('$str')"),
+          showAboutDialog(context:context,children: [Text(message.message)])
+      })
+      // ..runJavaScript('globalCallback(123)')
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
@@ -59,16 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
-              return NavigationDecision.prevent;
-            }
+            print('request navigato');
             return NavigationDecision.navigate;
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://flutter.dev'));
+      ..loadRequest(Uri.parse('http://127.0.0.1:5173'));
   }
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -79,13 +86,11 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: AspectRatio(
-            aspectRatio: 9 / 16, child: WebViewWidget(controller: _controller)),
+        child: WebViewWidget(controller: _controller),
       ),
     );
   }

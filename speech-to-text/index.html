@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="start">start</div>
+    <div class="end">end</div>
+    <script>
+      /* 
+        const grammar =
+            "#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
+        var speechRecognitionList = new webkitSpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+      */
+      var recognition = new webkitSpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.lang = "cmn-Hans-CN"; //普通话 (中国大陆)
+      //   // 开启
+      //   recognition.start();
+      //   // 停止
+      //   recognition.stop();
+      recognition.onresult = function (result) {
+        console.log(result);
+      };
+      recognition.onerror = function (event) {
+        console.log(event);
+      };
+      document
+        .getElementsByClassName("start")[0]
+        .addEventListener("click", () => {
+          recognition.start();
+          console.log("Ready to start recording");
+        });
+      document
+        .getElementsByClassName("end")[0]
+        .addEventListener("click", () => {
+          recognition.stop();
+          console.log("End of recording");
+        });
+    </script>
+    <style>
+      .start,
+      .end {
+        width: 80px;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+  </body>
+</html>

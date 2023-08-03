@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script src="./js/index.js" type="module"></script>
-    <p class="footer">vite</p>
+    <div class="flutter">flutter webview</div>
+    <!-- <p class="footer">vite</p>
     <div class="footer_content">
-        <div class="title-main"></div>
+      <div class="title-main"></div>
     </div>
     <div class="img"></div>
-    <div class="svg"></div>
-</body>
+    <div class="svg"></div> -->
+    <script>
+      window.globalCallback = function (data) {
+        console.log(data);
+        const textEl = document.createElement('div');
+        textEl.innerText = data;
+        document.getElementsByClassName("flutter")[0].appendChild(textEl);
+      };
+      document
+        .getElementsByClassName("flutter")[0]
+        .addEventListener("click", () => {
+          ShowMessage.postMessage("JS调用了Flutter");
+        });
+    </script>
+    <style>
+      .flutter {
+        width: 100%;
+        height: 800px;
+        background-color: rgb(206, 207, 205);
+        font-size: 38px;
+        text-align: center;
+      }
+    </style>
+  </body>
 </html>
