@@ -82,7 +82,9 @@ function activate(context) {
         // 获取选中的范围
         const selection = editor.selection;
         // 获取选中的文本
-        const selectedText = editor.document.getText(selection);
+        let selectedText = editor.document.getText(selection);
+        // 驼峰命名转换为正常英文格式
+        selectedText = selectedText.replace(/[A-Z]/g, ' '+'$&');
         // 输出选中的文本
         const output = await transform(selectedText);
         vscode.window.setStatusBarMessage(output, 2500);
