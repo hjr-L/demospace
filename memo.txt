@@ -1,0 +1,75 @@
+备忘
+--registry https://registry.npm.taobao.org
+
+git reset --soft
+ 196545da2edbac5abfd7ccb45a54786a90113b81
+
+脱敏
+replace(/(\d{3})\d*(\d{4})/,'$1****$2')
+
+css 显示...
+
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+
+iOS11之后的安全区域：（顺序不能反）
+height: constant(safe-area-inset-bottom);  /*兼容 IOS<11.2*/
+height: env(safe-area-inset-bottom);  /*兼容 IOS>11.2*/
+
+小程序保存base64图片
+const download = () => {
+    const manager = wx.getFileSystemManager();
+    manager.writeFile({
+        filePath: wx.env.USER_DATA_PATH + "/qrCode.jpg",
+        data: "/9j/4AAQS…,
+        encoding: "base64",
+        success: (res) => {
+            wx.saveImageToPhotosAlbum({
+                filePath: wx.env.USER_DATA_PATH + "/qrCode.jpg",
+                success: function (res) {
+                    wx.showToast({
+                        title: "保存成功"
+                    });
+                },
+                fail: function (err) {
+                    console.log(err);
+                }
+            });
+            console.log(res);
+        },
+        fail: (err) => {
+            console.log(err);
+        }
+    });
+};
+￼
+
+/** 缩放模式，不保持纵横比缩放图片，使图片的宽高完全拉伸至填满 image 元素 */
+scaleToFill
+/** 缩放模式，保持纵横比缩放图片，使图片的长边能完全显示出来。也就是说，可以完整地将图片显示出来。 */
+aspectFit
+/** 缩放模式，保持纵横比缩放图片，只保证图片的短边能完全显示出来。也就是说，图片通常只在水平或垂直方向是完整的，另一个方向将会发生截取。 */
+aspectFill
+/** 缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 */
+widthFix
+/** 缩放模式，高度不变，宽度自动变化，保持原图宽高比不变 */
+heightFix
+/** 裁剪模式，不缩放图片，只显示图片的顶部区域 */
+top
+/** 裁剪模式，不缩放图片，只显示图片的底部区域 */
+bottom
+/** 裁剪模式，不缩放图片，只显示图片的中间区域 */
+center
+/** 裁剪模式，不缩放图片，只显示图片的左边区域 */
+left
+/** 裁剪模式，不缩放图片，只显示图片的右边区域 */
+right
+/** 裁剪模式，不缩放图片，只显示图片的左上边区域 */
+'top left'
+/** 裁剪模式，不缩放图片，只显示图片的右上边区域 */
+'top right'
+/** 裁剪模式，不缩放图片，只显示图片的左下边区域 */
+'bottom left'
+/** 裁剪模式，不缩放图片，只显示图片的右下边区域 */
+'bottom right'
