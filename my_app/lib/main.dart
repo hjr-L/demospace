@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/widget/myDialog.dart';
+import 'package:my_app/widget/pageVIew.dart';
 // Import for Android features.
 import 'package:webview_flutter/webview_flutter.dart';
+
 // import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-   const MyApp({super.key});
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  MyHomePage(title: 'Flutter Demo Home Page',context:context),
+      home: MyHomePage(title: 'Flutter Demo Home Page', context: context),
     );
   }
 }
@@ -52,13 +54,14 @@ class _MyHomePageState extends State<MyHomePage> {
     _controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(Color.fromARGB(0, 104, 89, 89))
-      ..addJavaScriptChannel('ShowMessage', onMessageReceived: (message)=>{
-          print(message),
-          str = '我收到了，${message.message}',
-          _controller.runJavaScript("globalCallback('$str')"),
-          showAboutDialog(context:context,children: [Text(message.message)])
-      })
-      // ..runJavaScript('globalCallback(123)')
+      ..addJavaScriptChannel('ShowMessage',
+          onMessageReceived: (message) => {
+                print(message),
+                str = '我收到了，${message.message}',
+                _controller.runJavaScript("globalCallback('$str')"),
+                showAboutDialog(
+                    context: context, children: [Text(message.message)])
+              })
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
@@ -75,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       )
       ..loadRequest(Uri.parse('http://127.0.0.1:5173'));
   }
+
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -84,30 +88,24 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
     });
   }
-  void _myDialog(){
-    showDialog(context: context, builder: ((context){
-      return MyDialog(title:"我是title", content: "我是content",);
-    }));
+
+  void _myDialog() {
+    showDialog(
+        context: context,
+        builder: ((context) {
+          return MyDialog(
+            title: "我是title",
+            content: "我是content",
+          );
+        }));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        scrollDirection: Axis.horizontal,
-        allowImplicitScrolling:true,
-        children: [
-          Center(child: Text("第一页"),),
-          Center(child: Text("第二页"),),
-          Center(child: Text("第三页"),),
-        ],
+      body: SafeArea(
+        child: WebViewWidget(controller: _controller),
       ),
-      // body: SafeArea(
-      //   child: Column(
-      //     children: [
-      //     // WebViewWidget(controller: _controller),
-      //     ElevatedButton(onPressed: _myDialog, child: const Text("my dialog"))
-      //   ]),
-      // ),
     );
   }
 }
