@@ -4,9 +4,6 @@
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
-    #ifdef MP-TOUTIAO
-     <span>抖音小程序</span>
-    #endif
   </view>
 </template>
 
