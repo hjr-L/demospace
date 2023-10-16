@@ -3,6 +3,7 @@
 2. 静态资源文件上传
 3. 本地开发 预览本地静态资源文件
 4. 环境变量
+5. 跨域代理、alias
 ### chatgpt简易聊天半成品 前端 chat 服务 node-service
 1. chat前端调用服务
 2. node 起一个本地服务，调用chatgpt接口

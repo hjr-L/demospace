@@ -1,6 +1,10 @@
+// import 'dart:html';
+
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:my_app/widget/myDialog.dart';
-import 'package:my_app/widget/pageVIew.dart';
+// import 'package:my_app/widget/pageVIew.dart';
 // Import for Android features.
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -51,16 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     String str;
+    
     _controller
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setUserAgent('userAgent')
       ..setBackgroundColor(Color.fromARGB(0, 104, 89, 89))
       ..addJavaScriptChannel('ShowMessage',
           onMessageReceived: (message) => {
                 print(message),
                 str = '我收到了，${message.message}',
                 _controller.runJavaScript("globalCallback('$str')"),
-                showAboutDialog(
-                    context: context, children: [Text(message.message)])
+                // showAboutDialog(
+                  
+                //     context: context, children: [Text(message.message)])
               })
       ..setNavigationDelegate(
         NavigationDelegate(
@@ -76,7 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('http://127.0.0.1:5173'));
+      ..loadRequest(
+        Uri.parse('http://127.0.0.1:5173'),
+        headers: {'source': 'pos'},
+      );
   }
 
   void _incrementCounter() {

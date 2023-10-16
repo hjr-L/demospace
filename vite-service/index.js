@@ -16,12 +16,12 @@ app.use(async(cxt)=>{
         cxt.response.body = indexHtml.toString();
         cxt.response.set('Content-type', 'text/html');
     }
-    if(cxt.request.url == '/src/main.js'){
-        let mainJS = await fs.readFileSync(path.resolve(process.cwd(), 'src/main.js'));
-        mainJS = alias(mainJS.toString(), aliasObj);
-        cxt.response.body = mainJS;
-        cxt.response.set('Content-type', 'text/javascript');
-    }
+    // if(cxt.request.url == '/src/main.js'){
+    //     let mainJS = await fs.readFileSync(path.resolve(process.cwd(), 'src/main.js'));
+    //     mainJS = alias(mainJS.toString(), aliasObj);
+    //     cxt.response.body = mainJS;
+    //     cxt.response.set('Content-type', 'text/javascript');
+    // }
     // if(cxt.request.url == '/src/App.vue'){
     //     const appVue = await fs.readFileSync(path.resolve(process.cwd(), 'src/App.vue'));
     //     cxt.response.body = appVue.toString();

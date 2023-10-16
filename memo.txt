@@ -1,8 +1,9 @@
 备忘
 --registry https://registry.npm.taobao.org
 
-git reset --soft
- 196545da2edbac5abfd7ccb45a54786a90113b81
+
+–soft会将撤销的放在cache里, 不想保留修改，就用–hard。
+git reset --soft 196545da2edbac5abfd7ccb45a54786a90113b81
 
 脱敏
 replace(/(\d{3})\d*(\d{4})/,'$1****$2')
@@ -73,3 +74,21 @@ right
 'bottom left'
 /** 裁剪模式，不缩放图片，只显示图片的右下边区域 */
 'bottom right'
+
+/**
+ * 10000 => "10,000"
+ * 千位符
+ * @param {number} num
+ */
+export function toThousandFilter(num) {
+  return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+}
+
+/**
+ * Upper case first char
+ * 首字母大写
+ * @param {String} string
+ */
+export function uppercaseFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}

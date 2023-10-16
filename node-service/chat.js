@@ -20,7 +20,8 @@ module.exports =  async function(messages){
               // messages: messages,
               prompt: messages.map(msg => msg.role + ': ' + msg.content).join('\n'),
               temperature: 0.6,
-              max_tokens: 1000
+              max_tokens: 1000,
+              // stream:True,//流返回
             },
             {
               httpsAgent: tunnel.httpsOverHttp({

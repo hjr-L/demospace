@@ -24,8 +24,12 @@
       document
         .getElementsByClassName("flutter")[0]
         .addEventListener("click", () => {
-          ShowMessage.postMessage("JS调用了Flutter");
+          let userAgent = navigator.userAgent;
+          ShowMessage.postMessage(userAgent);
+          // ShowMessage.postMessage("JS调用了Flutter");
         });
+
+
     </script>
     <style>
       .flutter {

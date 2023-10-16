@@ -1,11 +1,15 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png"></image>
-    <view class="text-area">
-      <text class="title">{{ title }}</text>
+    <view class="banner">banner</view>
+    <uni-notice-bar scrollable single text="[单行] 这是 NoticeBar 通告栏，这是 NoticeBar 通告栏，这是 NoticeBar 通告栏"></uni-notice-bar>
+    <view class="search">
+      <uni-input type="text" />
+      <button>开始解析</button>
+      <button>粘贴</button>
     </view>
   </view>
 </template>
+
 
 <script>
 export default {
@@ -19,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .content {
   display: flex;
   flex-direction: column;
@@ -27,14 +31,19 @@ export default {
   justify-content: center;
 }
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
+.banner{
+  width: 100vh;
+  height: 400rpx;
+  background-color: #8f8f94;
 }
+.search{
+  width: 100vh;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+}
+
+
 
 .text-area {
   display: flex;
