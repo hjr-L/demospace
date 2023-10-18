@@ -1,16 +1,20 @@
 <template>
-  <h1>{{ count }}</h1>
+  <div>
+    <h1>{{ count }}</h1>
+    <span class="error">error color</span>
+    <span class='fd'></span>
+  </div>
 </template>
 
 <script>
-import {getCurrentInstance, ref} from 'vue';
+import {getCurrentInstance, nextTick, ref} from 'vue';
 export default {
   setup(){
     const instance = getCurrentInstance();
-    setTimeout(()=> console.log(instance, instance.data))
-    // console.log(instance, instance.data);
     const count = ref(0);
-    count.value = count.value + instance.data.num;
+    nextTick(()=>{
+      count.value = count.value + instance.data.num;
+    })
     return {
       count
     }
@@ -18,19 +22,23 @@ export default {
   data(){
     return {
       test: "123",
-      num:0
+      num: 1
     }
   },
   mounted(){
     setTimeout(()=> this.num = 10, 1000)
-    console.log(this.count);
   }
 }
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .read-the-docs {
   color: #888;
+}
+.error{
+  color: @errorColor;
+  text-decoration: dashed;
+  font-size: 24px;
 }
 </style>
