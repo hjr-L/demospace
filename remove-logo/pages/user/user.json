@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+      "member-info": "./components/memberInfo/memberInfo"
+  }
 }

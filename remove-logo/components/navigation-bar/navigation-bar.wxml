@@ -1,8 +1,8 @@
-<view class="weui-navigation-bar {{extClass}}">
-  <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}}" style="color: {{color}}; background: {{background}}; {{displayStyle}}; {{innerPaddingRight}}; {{safeAreaTop}}">
+<view class="weui-navigation-bar {{extClass}}" style="height: {{navHeight}};">
+  <view class="weui-navigation-bar__inner {{ios ? 'ios' : 'android'}}" style="color: {{color}}; background: {{background}}; {{displayStyle}}; {{NavInnerPaddingRight}}; {{safeAreaTop}}">
 
     <!-- 左侧按钮 -->
-    <view class='weui-navigation-bar__left' style="{{leftWidth}}">
+    <view class='weui-navigation-bar__left' style="{{navLeftWidth}}">
       <block wx:if="{{back || homeButton}}">
         <!-- 返回上一页 -->
         <block wx:if="{{back}}">
@@ -61,4 +61,5 @@
       <slot name="right"></slot>
     </view>
   </view>
+  <view wx:if="{{showBgImg}}"></view>
 </view>
