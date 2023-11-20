@@ -1,0 +1,2 @@
+<!--pages/user/user.wxml-->
+<navigation-bar title="用户" back="{{false}}" color="black" background="#FFF"></navigation-bar>
