@@ -1,0 +1,6 @@
+<dialog>
+    <view class="register">
+        <input type="text" placeholder="请输入手机号" bindinput="input" />
+        <button bind:tap="submit">提交</button>
+    </view>
+</dialog>

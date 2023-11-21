@@ -1,18 +1,12 @@
-// pages/user/user.js
-const app = getApp();
+// pages/analysis/analysis.js
+import apis from '../../apis/index'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        navHeight: app.globalData.navHeight,
-        showRegister: false,
-        operateList: [{
-            text: '邀请记录',
-            icon: '',
-            path: ''
-        }]
+
     },
 
     /**
@@ -33,13 +27,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        if (typeof this.getTabBar === 'function') {
-            this.getTabBar((tabBar) => {
-                tabBar.setData({
-                    selected: 1
-                })
-            })
-        }
+
     },
 
     /**
@@ -70,15 +58,14 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    },
-    showRegister() {
-        this.setData({
-            showRegister: true
-        })
+    async analysisList() {
+        try {
+            const result = await apis.user.analysisList()
+        } catch (error) {
+            wx.showToast({
+                title: error.message || '失败',
+            })
+        }
     }
+
 })

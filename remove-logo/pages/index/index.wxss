@@ -10,16 +10,74 @@ page {
   margin-top: 40rpx;
 }
 
+.banner{
+    /* background-color: #e0e0e0; */
+}
+.swiper-item{
+    background-color: #e0e0e0;
+    height: 100%;
+}
+
 .search {
-    margin: 10rpx 32rpx;
+    margin: 20rpx 32rpx;
     height: 80rpx;
-    border: 2rpx solid #e6e6e6;
+    column-gap: 10rpx;
 }
 .search .input {
-    width: 80%;
+    width: 50%;
     height: 100%;
     padding-left: 20rpx;
+    border: 2rpx solid #e6e6e6;
+    flex-shrink: 0;
+    border-radius: 8rpx;
 }
-.search .submit {
+
+.search .button{
+    /* font-size: 24rpx; */
+    width: 200rpx;
     height: 100%;
+}
+
+.search .submit {
+    background: #e0e0e0;
+}
+.search .parse{
+
+}
+
+.tips{
+    text-align: center;
+    font-size: 24rpx;
+    color: #777;
+    margin: 40rpx;
+}
+
+.work{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32rpx;
+    gap: 20rpx;
+}
+
+.work-item{
+    height: 140rpx;
+    width: calc(50% - 12rpx);
+    /* flex-shrink: 0; */
+    border: 2rpx solid rgb(228, 228, 228);
+    box-sizing: border-box;
+    padding: 20rpx;
+}
+
+.work-item .sub{
+    font-size: 20rpx;
+    margin-top: 10rpx;
+}
+.share-btn{
+    margin: 40rpx 32rpx;
+    background-color: #e7e7e7;
+    height: 80rpx;
+    width: calc(100vw - 64rpx);
 }

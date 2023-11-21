@@ -4,7 +4,8 @@ let count = 0;
 function loading() {
     if (count == 0) {
         wx.showLoading({
-            title: '加载中',
+            title: '加载中...',
+            mask: true
         })
     }
     count++;

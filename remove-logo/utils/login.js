@@ -6,8 +6,11 @@ function login(){
               success: async (res) => {
                 if(res.code){
                     try {
-                        const result = await apis.user.login({code: res.code})
-                        resolve(result)
+                        // const result = await apis.user.login({code: res.code})
+                        // resolve(result)
+                        const shareId = getApp().globalData.shareId;
+                        console.log(getApp().globalData);
+                        resolve()
                     } catch (error) {
                         reject(error)
                     }
@@ -18,7 +21,12 @@ function login(){
               fail: reject
             })
     })
+}
 
+function register(){
+    return new Promise((resolve,reject)=>{
+
+    })
 }
 
 async function silentLogin(){
@@ -26,7 +34,8 @@ async function silentLogin(){
         count--;
         const data = await login();
         // ...
-        wx.setStorageSync('token', data.token)
+        wx.setStorageSync('shareId', 123)
+        wx.setStorageSync('token', data?.token)
         return Promise.resolve();
     } catch (error) {
         if(count<=0){

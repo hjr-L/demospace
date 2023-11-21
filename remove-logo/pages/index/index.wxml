@@ -1,8 +1,32 @@
 <!--index.wxml-->
 <navigation-bar title="首页" back="{{false}}" color="black" background="#FFF"></navigation-bar>
-<scroll-view class="scrollarea" scroll-y type="list">
-    <view class="search flex-start-center">
-        <input class="input" type="text" placeholder="输入链接" />
-        <button class="submit">转换</button>
+<scroll-view class="scrollarea" scroll-y type="list" wx:if="{{false}}">
+    <view class="banner" wx:if="{{bannerList.length>0}}">
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <block wx:for="{{bannerList}}" wx:key="*this">
+                <swiper-item>
+                    <view class="swiper-item">{{item}}</view>
+                </swiper-item>
+            </block>
+        </swiper>
     </view>
+    <view class="search flex-start-center">
+        <input class="input" type="text" placeholder="输入链接" bindinput="bindKeyInput" />
+        <button class="submit button" bind:tap="clickAnalysis">解析</button>
+        <button class="paste button" bind:tap="clickPaste">粘贴</button>
+    </view>
+    <view class="tips">
+        <text>支持：123123213123</text>
+    </view>
+    <view class="work">
+        <view wx:for="{{workList}}" wx:key="index" class="work-item flex-center-start">
+            <view class="flex-col">
+                <text>{{item.text}}</text>
+                <text class="sub">{{item.subText}}</text>
+            </view>
+        </view>
+    </view>
+    <button open-type="share" class="share-btn">
+        分享好友增加次数
+    </button>
 </scroll-view>

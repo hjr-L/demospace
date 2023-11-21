@@ -9,5 +9,35 @@ module.exports = {
                 loading: true
             }
         })
-    }
+    },
+    register: (data) => {
+        return request({
+            url: '/register',
+            method: 'post',
+            data,
+            config: {
+                loading: true
+            }
+        })
+    },
+    invitationList: (data) => {
+        return request({
+            url: '/invitation',
+            method: 'get',
+            data,
+            config: {
+                loading: true
+            }
+        })
+    },
+    analysisList: (data) => {
+        return request({
+            url: '/analysis',
+            method: 'get',
+            data,
+            config: {
+                loading: true
+            }
+        })
+    },
 }

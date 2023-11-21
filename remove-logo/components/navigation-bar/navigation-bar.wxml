@@ -61,5 +61,5 @@
       <slot name="right"></slot>
     </view>
   </view>
-  <view wx:if="{{showBgImg}}"></view>
+  <slot></slot>
 </view>

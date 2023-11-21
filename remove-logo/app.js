@@ -10,12 +10,17 @@ App({
         ios: true,
         safeAreaTop: 0,
         navlLeftWidth: 0,
-        navInnerPaddingRight: 0
+        navInnerPaddingRight: 0,
+        shareId: '' //通过分享页面进入的分享id
     },
-    onLaunch() {
-
+    onLaunch(options) {
+        const {
+            query
+        } = options;
+        if (query.shareId) this.globalData.shareId = query.shareId
         // 静默登录
         silentLogin();
+        // 设备相关信息
         const rect = wx.getMenuButtonBoundingClientRect()
         wx.getSystemInfo({
             success: (res) => {
@@ -36,5 +41,6 @@ App({
                 this.globalData.safeAreaTop = isDevtools || isAndroid ? `height: calc(var(--height) + ${res.safeArea.top}px); padding-top: ${res.safeArea.top}px` : ``;
             }
         })
+
     }
 })

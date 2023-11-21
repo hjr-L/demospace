@@ -1,6 +1,6 @@
 
 @import "/style/flex.wxss";
-
+@import "/static/icon/iconfont.wxss";
 /**app.wxss**/
 .container {
   height: 100%;

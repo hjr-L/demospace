@@ -1,0 +1,27 @@
+/* components/dialog/dialog.wxss */
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* 遮盖tabbar */
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.2);
+}
+.dialog-content{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+    background-color: #fff;
+}
+
+.dialog-content .icon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+    font-size: 64rpx;
+    color: #999999;
+}

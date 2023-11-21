@@ -1,17 +1,20 @@
 Component({
+    options: {
+        styleIsolation: "apply-shared"
+    },
     data: {
         selected: 0,
         color: "#7A7E83",
         selectedColor: "#3cc51f",
         list: [{
             pagePath: "/pages/index/index",
-            // iconPath: "/image/icon_component.png",
-            // selectedIconPath: "/image/icon_component_HL.png",
+            icon: "icon-shouye",
+            selectedIcon: "icon-shouyefill",
             text: "首页"
         }, {
             pagePath: "/pages/user/user",
-            // iconPath: "/image/icon_API.png",
-            // selectedIconPath: "/image/icon_API_HL.png",
+            icon: "icon-yonghu",
+            selectedIcon: "icon-yonghufill",
             text: "用户"
         }]
     },

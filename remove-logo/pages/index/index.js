@@ -1,59 +1,52 @@
-// index.js
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
-
+var shareBehavior = require('../../mixins/shareBehavior')
+import apis from '../../apis/index'
 Page({
+    behaviors: [shareBehavior],
     data: {
-        motto: 'Hello World',
         userInfo: {
-            avatarUrl: defaultAvatarUrl,
+            avatarUrl: '',
             nickName: '',
         },
         hasUserInfo: false,
         canIUseGetUserProfile: wx.canIUse('getUserProfile'),
         canIUseNicknameComp: wx.canIUse('input.type.nickname'),
-    },
-    methods: {
-        // 事件处理函数
-        // bindViewTap() {
-        //   wx.navigateTo({
-        //     url: '../logs/logs'
-        //   })
-        // },
-        onChooseAvatar(e) {
-            const {
-                avatarUrl
-            } = e.detail
-            const {
-                nickName
-            } = this.data.userInfo
-            this.setData({
-                "userInfo.avatarUrl": avatarUrl,
-                hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-            })
-        },
-        onInputChange(e) {
-            const nickName = e.detail.value
-            const {
-                avatarUrl
-            } = this.data.userInfo
-            this.setData({
-                "userInfo.nickName": nickName,
-                hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-            })
-        },
-        getUserProfile(e) {
-            // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-            wx.getUserProfile({
-                desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-                success: (res) => {
-                    console.log(res)
-                    this.setData({
-                        userInfo: res.userInfo,
-                        hasUserInfo: true
-                    })
-                }
-            })
-        },
+        bannerList: [1, 2, 3],
+        indicatorDots: true,
+        vertical: false,
+        autoplay: false,
+        interval: 2000,
+        duration: 500,
+        workList: [{
+                text: '解析记录',
+                subText: "描述123123",
+                icon: '',
+                bgColor: '',
+                path: 'pages/analysis/analysis'
+            },
+            {
+                text: '邀请记录',
+                subText: "描述123123",
+                icon: '',
+                bgColor: '',
+                path: 'pages/invitation/invitation'
+            },
+            {
+                text: '解析教程',
+                subText: "描述123123",
+                icon: '',
+                bgColor: '',
+                path: ''
+            },
+            {
+                text: '批量教程',
+                subText: "描述123123",
+                icon: '',
+                bgColor: '',
+                path: ''
+            },
+        ],
+        inputLink: ''
+
     },
     onShow() {
         if (typeof this.getTabBar === 'function') {
@@ -61,6 +54,35 @@ Page({
                 tabBar.setData({
                     selected: 0
                 })
+            })
+        }
+    },
+    onLoad(options) {
+        // console.log(options,'---------');
+    },
+    clickPaste() {
+        wx.getClipboardData(res => {
+            console.log(res);
+        })
+    },
+    bindKeyInput(e) {
+        this.setData({
+            inputLink: e.detail.value
+        })
+    },
+    async clickAnalysis() {
+        if (!this.data.inputLink) return
+        try {
+            const result = await apis.operate.analysis({
+                url: this.data.inputLink
+            })
+            if (result.video) {
+                // 解析成功
+            }
+        } catch (error) {
+            wx.showToast({
+                title: error.message || '失败',
+                icon: 'none'
             })
         }
     }
