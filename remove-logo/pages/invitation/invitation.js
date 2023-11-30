@@ -6,7 +6,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        list: [],
+        page: 0,
+        size: 10
     },
 
     /**
@@ -27,7 +29,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-        invitationList()
+        this.invitationList(true)
     },
 
     /**
@@ -55,11 +57,20 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-
+        ++this.data.page
+        invitationList(false)
     },
-    async invitationList() {
+    async invitationList(refresh=false) {
         try {
-            const result = await apis.user.invitationList()
+            const result = await apis.user.invitationList({
+                page: this.data.page,
+                size: this.data.size
+            })
+            let list = refresh ? [] : this.data.list
+            list = list.concat(res.data)
+            this.setData({
+                list
+            })
         } catch (error) {
             wx.showToast({
                 title: error.message || '失败',

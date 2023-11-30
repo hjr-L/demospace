@@ -1,2 +1,7 @@
-<!--pages/invitation/invitation.wxml-->
-<text>invitation 记录</text>
+<navigation-bar title="邀请记录" back="{{true}}" color="black" background="">
+    <!-- <view class="nav-bg"></view> -->
+</navigation-bar>
+<view>
+    <empty wx:if="{{!list.length}}" text="暂无邀请记录" btnText="去邀请"></empty>
+    <view wx:else></view>
+</view>

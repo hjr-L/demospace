@@ -38,6 +38,7 @@
   },
   "usingComponents": {
     "navigation-bar": "/components/navigation-bar/navigation-bar",
-    "dialog": "/components/dialog/dialog"
+    "dialog": "/components/dialog/dialog",
+    "empty": "/components/empty/empty"
   }
 }

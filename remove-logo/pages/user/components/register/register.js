@@ -1,5 +1,8 @@
 // pages/user/components/register/register.js
 import apis from '../../apis/index'
+import {
+    silentLogin
+} from './utils/login'
 Component({
 
     /**
@@ -22,7 +25,8 @@ Component({
     methods: {
         async submit() {
             try {
-                
+                await apis.user.register({mobile: this.data.mobile});
+                silentLogin();
             } catch (error) {
                 wx.showToast({
                   title: error.message || '失败',

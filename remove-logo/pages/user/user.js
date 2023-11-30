@@ -9,9 +9,13 @@ Page({
         navHeight: app.globalData.navHeight,
         showRegister: false,
         operateList: [{
+            text: '转换记录',
+            icon: '',
+            path: 'pages/analysis/analysis'
+        },{
             text: '邀请记录',
             icon: '',
-            path: ''
+            path: 'pages/invitation/invitation'
         }]
     },
 
