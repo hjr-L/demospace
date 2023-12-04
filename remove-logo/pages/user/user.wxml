@@ -4,5 +4,10 @@
 </navigation-bar>
 <scroll-view>
     <member-info id="memberInfo" class="memberInfo-com" bind:register="showRegister"></member-info>
-    <view class="operate-list" wx:for="{{operateList}}" wx:key="index"></view>
+    <view class="operate-list">
+      <view class="item" wx:for="{{operateList}}" data-path="{{item.path}}" wx:key="index" catch:tap="goto">
+        <text class="icon icon-font {{item.icon}}"></text>
+        <text>{{item.text}}</text>
+      </view>
+    </view>
 </scroll-view>

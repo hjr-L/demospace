@@ -2,13 +2,20 @@
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
+    margin-top: 30%;
 }
 .empty-text{
-    font-size: 32rpx;
+    font-size: 38rpx;
+    color: #B3B3B3;
 }
 .empty-btn{
-    padding: 10rpx 20rpx;
-    margin: 40rpx 0;
+    padding: 20rpx 20rpx;
+    margin-top: 132rpx;
+    background-color: #000;
+    color: #fff;
+    width: 264rpx;
+    /* font-size: 24rpx; */
 }

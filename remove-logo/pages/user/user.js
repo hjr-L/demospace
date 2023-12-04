@@ -10,12 +10,12 @@ Page({
         showRegister: false,
         operateList: [{
             text: '转换记录',
-            icon: '',
-            path: 'pages/analysis/analysis'
+            icon: 'icon-liebiaoxingshi',
+            path: '/pages/analysis/analysis'
         },{
             text: '邀请记录',
-            icon: '',
-            path: 'pages/invitation/invitation'
+            icon: 'icon-yaoqing',
+            path: '/pages/invitation/invitation'
         }]
     },
 
@@ -84,5 +84,12 @@ Page({
         this.setData({
             showRegister: true
         })
+    },
+    goto(e){
+      const path = e.currentTarget.dataset.path;
+      wx.navigateTo({
+        url: path,
+        fail:(err)=>console.log(err)
+      })
     }
 })

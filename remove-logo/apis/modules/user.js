@@ -32,7 +32,7 @@ module.exports = {
     },
     analysisList: (data) => {
         return request({
-            url: '/analysis',
+            url: '/analysis/list',
             method: 'get',
             data,
             config: {
