@@ -41,10 +41,9 @@ App({
         this.globalData.safeAreaTop = isDevtools || isAndroid ? `height: calc(var(--height) + ${res.safeArea.top}px); padding-top: ${res.safeArea.top}px` : ``;
       }
     })
-
+    this.sharePageConfig()
   },
   onShow(){
-    this.sharePageConfig()
   },
   // 页面全局分享设置
   sharePageConfig: function () {

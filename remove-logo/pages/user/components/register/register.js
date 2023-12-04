@@ -33,10 +33,10 @@ Component({
                 })
             }
         },
-        input(e) {
-            this.setData({
-                mobile: e.mobile.value
-            })
-        }
+        // input(e) {
+        //     this.setData({
+        //         mobile: e.mobile.value
+        //     })
+        // }
     }
 })

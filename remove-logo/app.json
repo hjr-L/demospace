@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/user/user",
     "pages/invitation/invitation",
-    "pages/analysis/analysis"
+    "pages/analysis/analysis",
+    "pages/edit/edit"
   ],
   "window": {
     "navigationBarTextStyle": "black",

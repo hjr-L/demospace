@@ -1,0 +1,23 @@
+.edit{
+  text-align: center;
+}
+.avatar{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  margin: 60rpx auto;
+  background-color: #999;
+}
+.form{
+  width: 100%;
+  padding: 0 32rpx;
+}
+.form-item{
+  padding: 20rpx 0;
+}
+.from-item-label{
+  font-size: 28rpx;
+}
+.from-item-input{
+  margin-top: 10rpx;
+}

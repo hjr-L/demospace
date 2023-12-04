@@ -1,7 +1,7 @@
 <view class="member-info">
     <view class="avatar"></view>
     <view class="info flex-start-around flex-col">
-        <text>123</text>
+        <text>name</text>
         <text>123</text>
     </view>
 </view>

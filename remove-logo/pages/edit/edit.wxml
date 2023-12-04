@@ -1,0 +1,11 @@
+<view class="edit">
+  <button class="avatar" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
+    <image class="avatar" src="{{avatarUrl}}"></image>
+  </button>
+  <view class="form">
+    <view class="form-item">
+      <view class="form-item-label">name</view>
+      <input type="text" class="form-item-input" model:value="{{info.name}}" />
+    </view>
+  </view>
+</view>
