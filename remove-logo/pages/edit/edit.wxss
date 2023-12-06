@@ -2,7 +2,7 @@
   text-align: center;
 }
 .avatar{
-  width: 180rpx;
+  width: 180rpx !important;
   height: 180rpx;
   border-radius: 50%;
   margin: 60rpx auto;
@@ -10,14 +10,18 @@
 }
 .form{
   width: 100%;
-  padding: 0 32rpx;
+  padding: 0 64rpx;
+  box-sizing: border-box;
 }
 .form-item{
   padding: 20rpx 0;
 }
-.from-item-label{
-  font-size: 28rpx;
+.form-item-label{
+  font-size: 38rpx;
+  text-align: left;
 }
-.from-item-input{
-  margin-top: 10rpx;
+.form-item-input{
+  margin-top: 20rpx;
+  height: 80rpx;
+  border: 2rpx solid rgb(228, 227, 227);
 }

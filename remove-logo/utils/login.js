@@ -1,4 +1,5 @@
 import apis from '../apis/index';
+const app = getApp();
 let count = 1
 function login(){
     return new Promise((resolve,reject)=>{
@@ -34,6 +35,7 @@ async function silentLogin(){
         count--;
         const data = await login();
         // ...
+        app.globalData.userInfo = data;
         wx.setStorageSync('shareId', 123)
         wx.setStorageSync('token', data?.token)
         return Promise.resolve();

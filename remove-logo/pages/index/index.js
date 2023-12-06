@@ -1,5 +1,6 @@
 var shareBehavior = require('../../mixins/shareBehavior')
 import apis from '../../apis/index'
+const app = getApp()
 Page({
     behaviors: [shareBehavior],
     data: {
@@ -48,10 +49,11 @@ Page({
         inputLink: '',
         analysisUrl: '', //视频解析
         analysisImages: [
-            'https://p95-bj-sign.douyinpic.com/tos-cn-i-0813/o89BNA7AASAIeAjlpEDeDIAXECMbMAtcMgnQAJ~tplv-dy-aweme-images:q75.jpeg?x-expires=1703138400&x-signature=BqukoGTcRS6KNLuf5zvapkBdUro%3D&from=3213915784&s=PackSourceEnum_AWEME_DETAIL&se=false&sc=image&biz_tag=aweme_images&l=20231121145245FCAF834BB6B386050248',
+            'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
             'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
         ], //图片解析
-
+        navHeight: 42,
+        barHeight: 0
     },
     onShow() {
         if (typeof this.getTabBar === 'function') {
@@ -61,6 +63,10 @@ Page({
                 })
             })
         }
+        this.setData({
+          navHeight: app.globalData.navHeight,
+          barHeight: app.globalData.barHeight
+        })
     },
     onLoad(options) {
         // console.log(options,'---------');

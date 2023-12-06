@@ -7,8 +7,10 @@ page {
 
 .scrollarea {
     flex: 1;
-    overflow-y: hidden;
-    margin-top: 40rpx;
+    /* overflow-y: hidden; */
+    /* margin-top: 40rpx; */
+    padding-bottom: calc(48rpx + env(safe-area-inset-bottom));
+    box-sizing: border-box;
 }
 
 .banner {
@@ -104,6 +106,7 @@ page {
     justify-content: space-between;
     padding: 0 32rpx;
     gap: 20rpx;
+    margin-top: 30rpx;
 }
 
 .work-item {

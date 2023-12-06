@@ -13,16 +13,51 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  column-gap: 40rpx;
-  padding: 0 32rpx;
+  /* column-gap: 30rpx; */
+  justify-content: space-between;
+  /* padding: 0 32rpx; */
+  margin: 40rpx;
 }
 .item{
-  font-size: 32rpx;
+  font-size: 28rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.icon-font{
-  font-size: 50rpx;
+.icon{
+  font-size: 42rpx;
   margin-bottom: 10rpx;
+}
+
+.kefu, .auto-download{
+  border-bottom: 2rpx solid var(--border-color);
+  font-size: 28rpx;
+  font-weight: 500;
+  height: 120rpx;
+  line-height: 120rpx;
+  padding: 0 32rpx;
+}
+.kefu{
+  border-top: 2rpx solid var(--border-color);
+}
+.kefu .icon, .auto-download .icon{
+  font-size: 40rpx;
+  margin-right: 10rpx;
+}
+.kefu .weight, .auto-download .weight{
+  font-weight: 500;
+}
+
+.auto-download{
+  display: flex;
+  justify-content: space-between;
+}
+
+.online-kefu{
+  width: calc(100vw - 64rpx) !important;
+  height: 80rpx;
+  /* line-height: 80rpx; */
+  margin: 80rpx auto;
+  background-color: #999;
+  color: white;
 }

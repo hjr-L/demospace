@@ -1,6 +1,9 @@
+<navigation-bar title="编辑用户" back="{{false}}" color="black" background="">
+  <!-- <view class="nav-bg"></view> -->
+</navigation-bar>
 <view class="edit">
   <button class="avatar" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
-    <image class="avatar" src="{{avatarUrl}}"></image>
+    <image src="{{avatarUrl}}"></image>
   </button>
   <view class="form">
     <view class="form-item">
