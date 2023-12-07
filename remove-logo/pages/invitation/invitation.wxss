@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 .item{
-  border-bottom: 2rpx solid #A5A5A5;
+  border-bottom: 2rpx solid var(--border-color);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,7 +24,7 @@
 }
 .item .user .name{
   font-size: 36rpx;
-  color: black;
+  color: var(--primary-color);
 }
 .item .user .time{
   font-size: 28rpx;
@@ -32,6 +32,6 @@
 }
 
 .item .add{
-  color: rgb(185, 68, 68);
+  color: var(--danger-color);
   font-size: 36rpx;
 }

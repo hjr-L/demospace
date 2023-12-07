@@ -40,6 +40,8 @@
   "usingComponents": {
     "navigation-bar": "/components/navigation-bar/navigation-bar",
     "dialog": "/components/dialog/dialog",
-    "empty": "/components/empty/empty"
-  }
+    "empty": "/components/empty/empty",
+    "privacy-popup": "/components/privacyPopup/privacyPopup"
+  },
+  "__usePrivacyCheck__": true
 }

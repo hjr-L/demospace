@@ -1,6 +1,0 @@
-<dialog>
-    <view class="register">
-        <input type="text" placeholder="请输入手机号" model:value="mobile" />
-        <button bind:tap="submit">提交</button>
-    </view>
-</dialog>

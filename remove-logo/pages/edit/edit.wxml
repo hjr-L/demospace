@@ -1,14 +1,21 @@
-<navigation-bar title="编辑用户" back="{{false}}" color="black" background="">
+<navigation-bar title="编辑用户" back="{{true}}" color="black" background="">
   <!-- <view class="nav-bg"></view> -->
 </navigation-bar>
 <view class="edit">
-  <button class="avatar" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
-    <image src="{{avatarUrl}}"></image>
+  <button class="avatar flex-center" open-type="chooseAvatar" bindchooseavatar="chooseAvatar">
+    <image mode="widthFix" class="avatar-img" src="{{avatarUrl}}" wx:if="{{avatarUrl}}"></image>
+    <text wx:else>Hello</text>
+    <text class="icon iconfont icon-bianji"></text>
   </button>
   <view class="form">
     <view class="form-item">
-      <view class="form-item-label">name</view>
-      <input type="text" class="form-item-input" model:value="{{info.name}}" />
+      <view class="form-item-label">昵称</view>
+      <input type="nickname" class="form-item-input" bindblur="inputWxName" placeholder="请输入昵称" bindinput="inputWxName" />
     </view>
+    <!-- <view class="form-item">
+      <view class="form-item-label">手机号</view>
+      <input type="nickname" class="form-item-input" placeholder="请输入昵称" model:value="{{info.name}}" />
+    </view> -->
   </view>
+  <view bind:tap="submit" class="btn fs-32">提交</view>
 </view>

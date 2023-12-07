@@ -1,0 +1,75 @@
+/* components/privacyPopup/privacyPopup.wxss */
+.privacy-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 19999; 
+  /* 覆盖tabbar */
+}
+
+.privacy-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* width: 100vw; */
+  padding: 60rpx 64rpx;
+  background-color: white;
+  font-size: 28rpx;
+  color: var(--primary-color);
+  line-height: 48rpx;
+}
+
+.title {
+  font-weight: 500rpx;
+  font-size: 32rpx;
+  line-height: 38rpx;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.mT60 {
+  margin-top: 60rpx;
+}
+
+.text-privacy {
+  color: var(--primary-color);
+}
+
+.privacy-rejuct {
+  height: 80rpx;
+  border: 2rpx solid var(--primary-color);
+  font-size: 28rpx;
+  color: var(--primary-color);
+  flex: 1 1 290rpx;
+  border-radius: 0;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22rpx 0 18rpx;
+  font-weight: 600;
+}
+
+.privacy-aggree {
+  height: 80rpx;
+  border: 2rpx solid var(--primary-color);
+  background-color: var(--primary-color);
+  font-size: 28rpx;
+  color:#FFFFFF;
+  flex: 1 1 290rpx;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22rpx 0 18rpx;
+  font-weight: 600;
+}
+
+.fx-x-between {
+  display: flex;
+  justify-content: space-between;
+}

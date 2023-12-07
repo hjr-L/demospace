@@ -109,6 +109,7 @@ Page({
   },
   switchChange(){
     const value = !this.data.switchChecked;
+    // 请求后端保存用户记录
     this.setData({
       switchChecked: value
     })

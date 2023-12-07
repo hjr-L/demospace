@@ -32,7 +32,7 @@ page {
     width: 50%;
     height: 100%;
     padding-left: 20rpx;
-    border: 2rpx solid #e6e6e6;
+    border: 2rpx solid var(--border-color);
     flex-shrink: 0;
     border-radius: 8rpx;
 }
@@ -52,7 +52,7 @@ page {
 .tips {
     text-align: center;
     font-size: 24rpx;
-    color: #777;
+    color: var(--sub-color);
     margin: 40rpx;
 }
 
@@ -116,7 +116,7 @@ page {
     border: 2rpx solid rgb(228, 228, 228);
     box-sizing: border-box;
     padding: 20rpx;
-    color: #666666;
+    color: var(--sub-color);
     font-size: 28rpx;
 }
 
@@ -131,7 +131,7 @@ page {
 
 .share-btn {
     margin: 40rpx 32rpx;
-    background-color: #e7e7e7;
+    background-color: var(--primary-color);
     height: 80rpx;
     width: calc(100vw - 64rpx);
 }

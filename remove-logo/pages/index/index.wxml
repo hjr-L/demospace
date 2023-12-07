@@ -49,3 +49,4 @@
     分享好友增加次数
   </button>
 </view>
+<privacy-popup></privacy-popup>

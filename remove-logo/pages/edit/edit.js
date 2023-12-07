@@ -1,6 +1,8 @@
 import apis from '../../apis/index'
+import {
+  register
+} from '../../utils/login'
 
-// pages/edit/edit.js
 Page({
 
   /**
@@ -67,7 +69,6 @@ Page({
 
   },
   chooseAvatar(e) {
-    console.log(e);
     const {
       avatarUrl
     } = e.detail
@@ -86,6 +87,28 @@ Page({
         title: '错误',
         icon: 'none'
       })
+    }
+  },
+  inputWxName(e) {
+    this.setData({
+      'info.nickname': e.detail.value
+    })
+  },
+  async submit() {
+    try {
+      if (!this.data.avatarUrl || !this.data.info.nickname) {
+        wx.showToast({
+          title: '请正确填写信息',
+        })
+        return
+      }
+      await register({
+        ...this.data.info,
+        avatarUrl: this.data.avatarUrl
+      })
+      wx.navigateBack()
+    } catch (error) {
+
     }
   }
 })

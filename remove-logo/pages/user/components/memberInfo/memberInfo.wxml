@@ -1,9 +1,19 @@
 <view class="member-info">
-    <view class="avatar"></view>
-    <view class="info flex-start-around flex-col">
-        <text>name</text>
-        <text>123</text>
-    </view>
+  <view class="avatar flex-center">
+    <image mode="widthFix" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo}}" />
+    <text wx:else>Hello</text>
+  </view>
+
+  <view class="info flex-start-around flex-col" wx:if="{{userInfo}}">
+    <view class="flex-center-start">
+      <text class="fs-32">{{userInfo.nickname}}</text>
+      <text class="grade">普通会员</text> </view>
+    <text class="sub fs-28">剩余可解析次数：<text class="weight-500">{{userInfo.pasteNum}}</text> </text>
+  </view>
+  <view class="info flex-start-around flex-col fs-32" wx:else bind:tap="goToEdit">
+    <text class="fs-32">点击登录</text>
+    <text class="sub fs-28">登录之后更精彩</text>
+  </view>
 </view>
 <!-- <view class="container">
     <view class="userinfo">

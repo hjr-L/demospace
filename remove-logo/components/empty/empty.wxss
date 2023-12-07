@@ -9,12 +9,12 @@
 }
 .empty-text{
     font-size: 38rpx;
-    color: #B3B3B3;
+    color: var(--sub-color);
 }
 .empty-btn{
     padding: 20rpx 20rpx;
     margin-top: 132rpx;
-    background-color: #000;
+    background-color: var(--primary-color);
     color: #fff;
     width: 264rpx;
     /* font-size: 24rpx; */
