@@ -2,7 +2,7 @@
   "name": "hjr-transform",
   "displayName": "hjr-transform",
   "description": "",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -24,20 +24,30 @@
       {
         "command": "newTransform",
         "title": "newTransform"
+      },
+      {
+        "command": "learn-vscode-extends.helloWorld",
+        "title": "Hello World"
       }
     ],
     "keybindings": [
       {
         "command": "newShowTranslate",
-        "key": "cmd+1"
+        "mac": "cmd+1",
+        "key": "ctrl+1",
+        "when": "editorTextFocus"
       },
       {
         "command": "newHumpReplace",
-        "key": "cmd+4"
+        "mac": "cmd+4",
+        "key": "ctrl+4",
+        "when": "editorTextFocus"
       },
       {
         "command": "newTransform",
-        "key": "cmd+3"
+        "mac": "cmd+3",
+        "key": "ctrl+3",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {

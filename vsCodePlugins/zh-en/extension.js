@@ -57,9 +57,9 @@ async function transform(str, onlyOne = false) {
       } else {
         result = value.join(",");
       }
-    }else{
-		throw new Error(res.data);
-	}
+    } else {
+      throw new Error(res.data);
+    }
     return result;
   } catch (error) {
     console.log(error);
@@ -84,7 +84,7 @@ function activate(context) {
         // 获取选中的文本
         let selectedText = editor.document.getText(selection);
         // 驼峰命名转换为正常英文格式
-        selectedText = selectedText.replace(/[A-Z]/g, ' '+'$&');
+        selectedText = selectedText.replace(/[A-Z]/g, ' ' + '$&');
         // 输出选中的文本
         const output = await transform(selectedText);
         vscode.window.setStatusBarMessage(output, 2500);
@@ -104,7 +104,7 @@ function activate(context) {
         const selectedText = editor.document.getText(selection);
         // 输出选中的文本
         let output = await transform(selectedText, true);
-        output = output.substring(0,1).toLocaleLowerCase() + output.substring(1);
+        output = output.substring(0, 1)?.toLocaleLowerCase() + output.substring(1);
         output = output
           .replace(/\s\w/g, (th) => th.toUpperCase())
           .replace(/\s/g, "");
@@ -133,10 +133,16 @@ function activate(context) {
       }
     }
   );
+  const disposable = vscode.commands.registerCommand("learn-vscode-extends.helloWorld", () => {
+    // 触发此事件会显示一段 Info 类型的 message
+    vscode.window.showInformationMessage("这是我的第一个 vscode 插件");
+  });
+
 
   context.subscriptions.push(newShowTranslate);
   context.subscriptions.push(newHumpReplace);
   context.subscriptions.push(newTransform);
+  context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated

@@ -1,6 +1,0 @@
-<view class="dialog flex-center">
-    <view class="dialog-content">
-        <view class="icon iconfont icon-guanbi1"></view>
-        <slot></slot>
-    </view>
-</view>

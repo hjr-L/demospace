@@ -1,5 +1,0 @@
-{
-  "usingComponents": {
-      "member-info": "./components/memberInfo/memberInfo"
-  }
-}

@@ -1,7 +1,0 @@
-
-page{
-  --border-color: #D8D8D8,
-  --primary-color: #333333,
-  --sub-color: #666666,
-  --danger-color: #F56C6C,
-}
