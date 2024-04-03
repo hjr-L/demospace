@@ -12,4 +12,4 @@ status bar 翻译
 editor 整句翻译
 
 ## ctrl+4
-deitor 驼峰翻译
+editor 驼峰翻译

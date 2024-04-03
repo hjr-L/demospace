@@ -1,5 +1,6 @@
 备忘
 --registry https://registry.npm.taobao.org
+--registry http://mirrors.cloud.tencent.com/npm/
 
 
 –soft会将撤销的放在cache里, 不想保留修改，就用–hard。
@@ -62,4 +63,56 @@ export function toThousandFilter(num) {
  */
 export function uppercaseFirst(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+// 滚到到指定距离, 并且发生触摸后停止
+scrollToNumber(number = 0, el) {
+    return new Promise((resolve, reject) => {
+    let stop = false
+
+    function listenCallBack() {
+        stop = true
+    }
+    const stopEvents = [
+        'click',
+        'mousewheel',
+        'touch',
+        'touchstart',
+        'touchmove',
+        'touchend'
+    ]
+    setTimeout(() => {
+        stopEvents.forEach((stopEvent) => {
+        window.addEventListener(stopEvent, listenCallBack)
+        })
+    }, 50)
+
+    function scrollTo(el, number, duration = 500) {
+        const start = el.scrollTop;
+        const change = number - start;
+        const startTime = performance.now();
+        const easeInOutQuad = (t) => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
+
+        function animateScroll() {
+        const currentTime = performance.now();
+        const elapsed = currentTime - startTime;
+        el.scrollTop = easeInOutQuad(elapsed / duration) * change + start;
+
+        if (elapsed < duration) {
+            requestAnimationFrame(animateScroll);
+        } else {
+            el.scrollTop = number;
+            stopEvents.forEach((stopEvent) => {
+            window.removeEventListener(stopEvent, listenCallBack);
+            });
+            resolve('scrollEnd');
+        }
+        }
+
+        animateScroll();
+    }
+    scrollTo(el, number)
+
+    })
+
 }

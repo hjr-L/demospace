@@ -1,0 +1,18 @@
+/* pages/swiper/swiper.wxss */
+page{
+  background: #fafafa;
+}
+.swiper {
+  background: #fafafa;
+}
+.swiper-item {
+  background: #fafafa;
+}
+.product {
+  width: 132px;
+  height: 188px;
+  border-radius: 74px 74px 0px 0px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}

@@ -1,5 +1,11 @@
 <template>
   <div>
-    <NuxtWelcome />
+    <!-- <NuxtWelcome /> -->
+    <NuxtPage></NuxtPage>
   </div>
 </template>
+
+<style lang="less">
+@import url(./style/common.less);
+</style>
+

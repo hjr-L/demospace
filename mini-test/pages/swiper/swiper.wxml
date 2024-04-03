@@ -1,0 +1,21 @@
+<!--pages/swiper/swiper.wxml-->
+<view class="" hover-class="none" hover-stop-propagation="false">
+  <swiper
+    indicator-dots="{{ false }}"
+    autoplay="{{ false }}"
+    circular="{{true}}"
+    display-multiple-items="{{2.7}}"
+    class="swiper"
+    scroll-with-animation="{{true}}"
+    >
+    <block wx:for="{{ list }}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item">
+          <view class="product">
+            {{item}}
+          </view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
