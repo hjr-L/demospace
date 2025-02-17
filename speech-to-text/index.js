@@ -41,7 +41,7 @@ let startRecognize = function (filePath,callback) {
             result.status = 500
             result.result = message.err_msg
         }
-        
+        // 
         callback(result)
     }, function(err) {
         console.log(err)

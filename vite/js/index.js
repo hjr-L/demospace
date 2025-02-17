@@ -20,6 +20,5 @@ svgEl.innerHTML = svgRaw;
 svgEl.addEventListener('click', function(){
     this.style.fill = 'red'
 })
+
 // console.log("import.meta.env",import.meta.env);
-
-

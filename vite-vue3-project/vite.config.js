@@ -4,8 +4,12 @@ import path from 'path'
 import autoprefixer from 'autoprefixer'
 import pxtorem from 'postcss-pxtorem'
 import eslintPlugin from 'vite-plugin-eslint'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 const variableLessPath = path.resolve(__dirname, 'src/style/variable.less')
+const commonLessPath = path.resolve(__dirname, 'src/style/common.less')
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,12 +38,20 @@ export default defineConfig({
           mediaQuery: true,
           minPixelValue: 1,
           exclude: /node_modules/i
-      }),
+        }),
+        AutoImport({
+          resolvers:[ElementPlusResolver()]
+        }),
+        Components({
+          resolvers: [ElementPlusResolver()],
+        })
+        
       ]
     },
     preprocessorOptions:{
       less:{
-        additionalData: `@import "${variableLessPath}";`
+        additionalData: `@import "${variableLessPath}"; @import "${commonLessPath}";`,
+        javascriptEnabled: true,
       }
     }
   }

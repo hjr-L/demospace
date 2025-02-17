@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div class="title">测试标题</div> -->
+  <div class="content">
+    <div class="wrap">
+      <div class="rightSide"></div>
+      <div class="reverseSide"></div>
+    </div>
+    <!-- <div class="wrap">
+      <div class="rightSide"></div>
+      <div class="reverseSide"></div>
+    </div>
+    <div class="wrap">
+      <div class="rightSide"></div>
+      <div class="reverseSide"></div>
+    </div>
+    <div class="wrap">
+      <div class="rightSide"></div>
+      <div class="reverseSide"></div>
+    </div> -->
+  </div>
+</body>
+<style>
+  /* .title{
+    line-height: 32px;
+    border-bottom: 3px solid #e28686;
+  } */
+  .content{
+    width: 600px;
+    display: grid;
+    grid: 1fr 1fr 1fr;
+  }
+  .wrap{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: 3s;
+    /* transform-origin: bottom right */
+  }
+  .reverseSide, .rightSide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+  }
+  .rightSide{
+    background: rgb(188, 197, 188);
+    z-index: 1;
+  }
+  .reverseSide{
+    background: rgb(101, 101, 121);
+    transform: rotateY(180deg);
+  }
+  .wrap:hover{
+    transform: rotateZ(20deg);
+  }
+
+</style>
+</html>

@@ -1,3 +1,15 @@
 * {
     color: @primaryColor;
 }
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-container(@align: center, @justify: center) {
+    display: flex;
+    align-items: @align;
+    justify-content: @justify;
+}

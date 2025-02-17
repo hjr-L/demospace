@@ -1,4 +1,4 @@
 export default{
     primaryColor: 'blue',
-    borderColoe: "#999"
+    borderColoe: "#999",
 }
