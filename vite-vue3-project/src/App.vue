@@ -1,10 +1,10 @@
 
 <template>
-  <TodoList></TodoList>
+  <RouterView />
 </template>
 
 <script setup>
-import TodoList from './components/TodoList.vue'
+import { RouterView } from 'vue-router';
 </script>
 
 

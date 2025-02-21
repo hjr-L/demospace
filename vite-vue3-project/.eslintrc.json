@@ -25,5 +25,6 @@
         "vue"
     ],
     "rules": {
+        "vue/multi-word-component-names": "off"  // 如果你不想强制使用多单词命名，可以关闭这个规则
     }
 }

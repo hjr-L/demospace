@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
+    "axios": "^1.7.9",
     "element-plus": "^2.9.4",
     "less": "^4.2.0",
     "pinia": "^3.0.1",

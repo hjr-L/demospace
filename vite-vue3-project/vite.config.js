@@ -16,6 +16,12 @@ export default defineConfig({
   plugins: [
     vue(),
     eslintPlugin(),
+    AutoImport({
+      resolvers:[ElementPlusResolver()]
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    })
   ],
   resolve:{
     alias:{
@@ -39,13 +45,6 @@ export default defineConfig({
           minPixelValue: 1,
           exclude: /node_modules/i
         }),
-        AutoImport({
-          resolvers:[ElementPlusResolver()]
-        }),
-        Components({
-          resolvers: [ElementPlusResolver()],
-        })
-        
       ]
     },
     preprocessorOptions:{
